@@ -60,14 +60,16 @@ ALTER TABLE LOCATIONS ADD(
 );
 
 
+/*Tabloya kolon ekleme FK için örneğin*/
+ALTER TABLE DEPARTMENTS ADD LOCATION_ID NUMBER(4);
+
 /*******************************/
 ALTER TABLE DEPARTMENTS ADD(
     CONSTRAINT DEPT_ID_PK PRIMARY KEY (DEPARTMENT_ID),
     CONSTRAINT DEP_LOC_FK FOREIGN KEY (LOCATION_ID) REFERENCES LOCATIONS(LOCATION_ID)
 );
 
-/*Tabloya kolon ekleme FK için örneğin*/
-ALTER TABLE DEPARTMENTS ADD LOCATION_ID NUMBER(4);
+
 /*******************************/
 
 /*Oracle da komutlar case sensitive değildir büyük yada küçük yazarak çalışıtırılabilir.*/
@@ -76,6 +78,7 @@ ALTER TABLE JOBS ADD(
     CONSTRAINT JOB_ID_PK PRIMARY KEY(JOB_ID)
 );
 
+ALTER TABLE EMPLOYEES ADD DEPARTMENT_ID NUMBER(2);
 
 /*Bir fk kendi tablosunu refere edebilir burada çalışanın kullanıcısını işaretlemektir.
 Yönetici de bir çalışandır.
@@ -86,8 +89,6 @@ ALTER TABLE  EMPLOYEES ADD(
     CONSTRAINT EMP_JOB_FK FOREIGN KEY(JOB_ID) REFERENCES JOBS(JOB_ID),
     CONSTRAINT EMP_MANAGER_FK FOREIGN KEY(MANAGER_ID) REFERENCES EMPLOYEES(EMPLOYEE_ID)
 );
-
-ALTER TABLE EMPLOYEES ADD DEPARTMENT_ID NUMBER(2);
 
 
 /*Karşılıklı 2 tablo birbirine fk da verebilir.*/
