@@ -55,12 +55,3 @@ REVOKE <Privs> ON <Object> FROM <user>;
 /*kULLANICI ADI VE ŞİFRESİ ABUZER olan bir user oluşturduk.*/
 CREATE USER ABUZER IDENTIFIED BY ABUZER;
 GRANT CONNECT, RESOURCE TO ABUZER; /*Bu yetki verilmesse kullanıcı session açamaz bağlanma ve kaynak kullanma yetkisidir.*/
-
-/*Tabs sanal bir tablodur bir şemanın içerisinde hangi tablolar olduğu görmek için kullanılır aşağıdaki sorgu*/
-SELECT TABLE_NAME FROM TABS;
-
-/*ABUZER -> HAKAN şemasının objelerindeki regions ı sorgula eğer yetkisi yoksa bu tablo yok hatası vericek*/
-SELECT * FROM HAKAN.REGIONS;
-
-/*Yetkiyi HAKAN YADA DBA VEREBİLİR*/
-GRANT SELECT ON REGIONS TO ABUZER;
