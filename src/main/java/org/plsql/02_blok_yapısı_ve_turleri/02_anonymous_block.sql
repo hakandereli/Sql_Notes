@@ -1,0 +1,29 @@
+
+--***************--- PLSQL Kodlamaya Başlangıc
+-- Unnamed Block (Anonymous Block)
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('Merhaba Dünya!');
+END;
+
+-- DBMS_OUTPUT.PUT_LINE() çalışması için aşağıdaki kodun daha önce çalıştırılmış olması gerekir.
+SET SERVEROUTPUT ON;
+
+--     SQLPLUS DA ED KOMUTU İLE DÜZENLEMEK İÇİN NOT DEFTERİNDE AÇAR ÇALIŞTIRMAK İÇİN SE KAYDEDİP KAPAT R BAS.
+
+
+DECLARE
+ WMESSAGE VARCHAR2(100);
+BEGIN
+    WMESSAGE := 'MERHABA PL/SQL. BU İLK PROGRAMIM!';
+    DBMS_OUTPUT.PUT_LINE(WMESSAGE);
+END;
+
+-- iÇİNDE BULUNDUĞUMUZ GÜNÜN İSMİNİ YAZAN BİR PROGRAM
+    -- TÜRKÇE DE W İLE BAŞLAYAN BİR İFADE OLMADIĞI İÇİN BAŞINA W KOYUYOR REVİZE KELİMELERE TAKILMAMAK İÇİN
+-- := ATAMA OPERATORÜ
+DECLARE
+WGUN VARCHAR2(50);
+BEGIN
+    WGUN := TO_CHAR(SYSDATE, 'DAY');
+    DBMS_OUTPUT.PUT_LINE('Bu gün ' || WGUN );
+END;
